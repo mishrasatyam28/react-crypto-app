@@ -12,9 +12,9 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" elements={<Home />} />
-        <Route path="/coins" elements={<Coins />} />
-        <Route path="/exchnages" elements={<Exchanges />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/coins" element={<Coins />} />
+        <Route path="/exchnages" element={<Exchanges />} />
         <Route path="/coin/:id" element={<CoinDetails />} />
       </Routes>
       {/* <Footer /> */}
@@ -23,5 +23,3 @@ function App() {
 }
 
 export default App;
-
-// 4:48
