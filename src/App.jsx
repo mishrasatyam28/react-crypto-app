@@ -17,7 +17,7 @@ function App() {
         <Route path="/exchnages" element={<Exchanges />} />
         <Route path="/coins/:id" element={<CoinDetails />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }
