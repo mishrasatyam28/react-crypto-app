@@ -64,7 +64,7 @@ const CoinDetails = () => {
         setDays("60d");
         setLoading(true);
         break;
-      case "1y":
+      case "200d":
         setDays("200d");
         setLoading(true);
         break;
