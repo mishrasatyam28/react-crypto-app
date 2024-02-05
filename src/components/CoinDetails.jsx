@@ -84,32 +84,27 @@ const CoinDetails = () => {
     }
   };
 
-  useEffect(
-    () => {
-      const fetchCoin = async () => {
-        try {
-          const { data } = await axios.get(`${server}/coins/${params.id}`);
+  useEffect(() => {
+    const fetchCoin = async () => {
+      try {
+        const { data } = await axios.get(`${server}/coins/${params.id}`);
 
-          const { data: chartData } = await axios.get(
-            `${server}/coins/${params.id}/market_chart?vs_currency=${currency}&days=${days}`
-          );
+        const { data: chartData } = await axios.get(
+          `${server}/coins/${params.id}/market_chart?vs_currency=${currency}&days=${days}`
+        );
 
-          console.log(data);
-          setCoin(data);
-          console.log(chartData);
-          setChartArray(chartData.prices);
-          setLoading(false);
-        } catch (error) {
-          setError(true);
-          setLoading(false);
-        }
-      };
-      fetchCoin();
-    },
-    [params.id],
-    currency,
-    days
-  );
+        console.log(data);
+        setCoin(data);
+        console.log(chartData);
+        setChartArray(chartData.prices);
+        setLoading(false);
+      } catch (error) {
+        setError(true);
+        setLoading(false);
+      }
+    };
+    fetchCoin();
+  }, [params.id, currency, days]);
 
   if (error) {
     return <ErrorComponent message={"Error While Fetching Coin"} />;
