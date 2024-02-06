@@ -42,45 +42,72 @@ const CoinDetails = () => {
   // Buttons
   const btns = ["24h", "7d", "14d", "30d", "60d", "200d", "1y", "max"];
 
-  const switchChartStats = (key) => {
-    switch (key) {
-      case "24h":
-        setDays("24h");
-        setLoading(true);
-        break;
-      case "7d":
-        setDays("7d");
-        setLoading(true);
-        break;
-      case "14d":
-        setDays("14d");
-        setLoading(true);
-        break;
-      case "30d":
-        setDays("30d");
-        setLoading(true);
-        break;
-      case "60d":
-        setDays("60d");
-        setLoading(true);
-        break;
-      case "200d":
-        setDays("200d");
-        setLoading(true);
-        break;
-      case "1y":
-        setDays("365d");
-        setLoading(true);
-        break;
-      case "max":
-        setDays("max");
-        setLoading(true);
-        break;
+  // const switchChartStats = (key) => {
+  //   switch (key) {
+  //     case "24h":
+  //       setDays("24h");
+  //       setLoading(true);
+  //       break;
+  //     case "7d":
+  //       setDays("7d");
+  //       setLoading(true);
+  //       break;
+  //     case "14d":
+  //       setDays("14d");
+  //       setLoading(true);
+  //       break;
+  //     case "30d":
+  //       setDays("30d");
+  //       setLoading(true);
+  //       break;
+  //     case "60d":
+  //       setDays("60d");
+  //       setLoading(true);
+  //       break;
+  //     case "200d":
+  //       setDays("200d");
+  //       setLoading(true);
+  //       break;
+  //     case "1y":
+  //       setDays("365d");
+  //       setLoading(true);
+  //       break;
+  //     case "max":
+  //       setDays("max");
+  //       setLoading(true);
+  //       break;
 
-      default:
-        setDays("24h");
-        setLoading(true);
-        break;
+  //     default:
+  //       setDays("24h");
+  //       setLoading(true);
+  //       break;
+  //   }
+  // };
+
+  const switchChartStats = (key) => {
+    // Check if the selected time period is the same as the current one
+    if (key === days) {
+      // Reset the 'days' value to default or take any other action
+      setDays("24h");
+    } else {
+      // If the selected time period is different, update the state as usual
+      switch (key) {
+        case "24h":
+        case "7d":
+        case "14d":
+        case "30d":
+        case "60d":
+        case "200d":
+        case "1y":
+        case "max":
+          setDays(key);
+          setLoading(true);
+          break;
+        default:
+          setDays("24h");
+          setLoading(true);
+          break;
+      }
     }
   };
 
@@ -95,7 +122,7 @@ const CoinDetails = () => {
 
         console.log(data);
         setCoin(data);
-        console.log(chartData);
+        // console.log(chartData);
         setChartArray(chartData.prices);
         setLoading(false);
       } catch (error) {

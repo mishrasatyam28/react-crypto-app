@@ -6,6 +6,7 @@ import Home from "./components/Home.jsx";
 import Coins from "./components/Coins.jsx";
 import Exchanges from "./components/Exchanges.jsx";
 import CoinDetails from "./components/CoinDetails.jsx";
+import Watchlist from "./components/Watchlist.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/coins" element={<Coins />} />
         <Route path="/exchnages" element={<Exchanges />} />
         <Route path="/coins/:id" element={<CoinDetails />} />
+        <Route path="/watchlist" element={<Watchlist />} />
       </Routes>
       <Footer />
     </Router>

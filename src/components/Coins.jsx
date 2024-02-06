@@ -50,6 +50,7 @@ const Coins = () => {
     };
     fetchCoins();
   }, [currency, page]);
+
   if (error) return <ErrorComponent message={"Error while Fetching Coins "} />;
   return (
     <Container maxW={"container.xl"}>
