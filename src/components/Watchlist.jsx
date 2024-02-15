@@ -1,10 +1,11 @@
 import { Box, HStack, VStack, Text, Input, Button } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useId } from "react";
 import { IoMdAdd } from "react-icons/io";
 
 const Watchlist = () => {
   // State for storing the list of favorite coins
   const [watchlist, setWatchlist] = useState([]);
+  const coinId = useId();
 
   // State for the input value
   const [newCoin, setNewCoin] = useState("");
@@ -57,10 +58,10 @@ const Watchlist = () => {
       </HStack>
 
       {/* Input for adding new coins */}
-      <HStack m={"2rem"}>
+      <HStack m={"1rem"}>
         <Input
           type="text"
-          w={"sm"}
+          w={["60%", "sm"]}
           fontFamily={"Roboto"}
           placeholder="Enter coin name"
           border={"2px solid green"}
@@ -82,10 +83,11 @@ const Watchlist = () => {
       </HStack>
 
       {/* Display the watchlist */}
-      <VStack w={"md"} h={"full"} m={"1rem"}>
+      <VStack w={["80%", "sm"]} h={"full"} m={"1rem"}>
         {watchlist.map((coin) => (
           <HStack
-            w={"sm"}
+            key={coinId}
+            w={["70%", "sm"]}
             display={"flex"}
             justifyContent={"space-between"}
             p={"8px"}
@@ -103,8 +105,8 @@ const Watchlist = () => {
               </Text>
             </Box>
             <Button
-              p={"2px"}
-              w={"25%"}
+              p={"1px"}
+              w={"40%"}
               variant={"transparent"}
               border={"1px"}
               bgColor={"red"}
